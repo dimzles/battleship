@@ -14,5 +14,9 @@ export const Ship = (length) => {
         return false;
     }
 
-    return { getLength, getHits, isSunk }
+    const hit = () => {
+        hits++
+    }
+
+    return { getLength, getHits, isSunk, hit }
 }
