@@ -8,7 +8,13 @@ describe('Ship.js tests', () => {
     test('Returns correct number of hits', () => {
         expect(ship.getHits()).toBe(0);
     })
-    test('Returns if ship is sunk', () => {
+    test('Returns false if ship is not sunk', () => {
         expect(ship.isSunk()).toBe(false);
+    })
+
+    test('Ships can recieve hits', () => {
+        const ship2 = Ship(4);
+        ship2.hit();
+        expect(ship2.getHits()).toBe(1);
     })
 })
