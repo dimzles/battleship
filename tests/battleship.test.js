@@ -12,9 +12,16 @@ describe('Ship.js tests', () => {
         expect(ship.isSunk()).toBe(false);
     })
 
+    test('Returns true if ship is sunk', () => {
+        const sunkShip = Ship(1)
+        sunkShip.hit();
+        expect(sunkShip.isSunk()).toBe(true)
+    })
+
     test('Ships can recieve hits', () => {
         const ship2 = Ship(4);
         ship2.hit();
         expect(ship2.getHits()).toBe(1);
     })
+
 })
