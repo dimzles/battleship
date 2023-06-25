@@ -1,9 +1,14 @@
-import testFunction from "../src/Ship.js";
-import indexFunction from "../src/index.js";
+import { Ship } from "../src/Ship.js";
 
-describe('Ship factory returns Ship object with correct properties', () => {
+describe('Ship.js tests', () => {
     const ship = Ship(5)
-    expect(ship.getLength()).toBe(5);
-    expect(ship.getHits()).toBe(0);
-    expect(ship.isSunk()).toBe(false);
+    test('Returns correct length', () => {
+        expect(ship.getLength()).toBe(5);
+    })
+    test('Returns correct number of hits', () => {
+        expect(ship.getHits()).toBe(0);
+    })
+    test('Returns if ship is sunk', () => {
+        expect(ship.isSunk()).toBe(false);
+    })
 })
