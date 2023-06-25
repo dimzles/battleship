@@ -1,4 +1,5 @@
 import { Ship } from "../src/Ship.js";
+import Gameboard from "../src/Gameboard.js";
 
 describe('Ship.js tests', () => {
     const ship = Ship(5);
@@ -33,6 +34,6 @@ describe('Gameboard.js tests', () => {
     const gameboard = new Gameboard();
 
     test('Creates a gameboard of correct size', () => {
-        expect(gameboard.board.size().toBe(100));
+        expect(gameboard.board.size).toBe(100);
     });
 })
