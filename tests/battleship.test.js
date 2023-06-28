@@ -36,4 +36,12 @@ describe('Gameboard.js tests', () => {
     test('Creates a gameboard of correct size', () => {
         expect(gameboard.board.size).toBe(100);
     });
+
+    test('Places a ship at a given coordinate', () => {
+        gameboard.placeShip(5, [0, 1], "vertical");
+        expect(gameboard.shipLocations).toContainEqual({
+            "shipIsSunk": false, 
+            "shipCoords": [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5]],
+        })
+    })
 })
