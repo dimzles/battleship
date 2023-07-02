@@ -1,3 +1,5 @@
+import { Ship } from "./Ship";
+
 export default class Gameboard {
     constructor() {
         this.board = new Map();
@@ -14,5 +16,33 @@ export default class Gameboard {
                 })
             }
         }
+    }
+
+    placeShip(length, coordArray, orientation) {
+        const ship = Ship(length);
+        const x = coordArray[0];
+        const y = coordArray[1];
+        const posArray = [];
+
+
+        switch (orientation) {
+            case 'vertical':
+                for (let i = 0; i < ship.getLength(); i++) {
+                    posArray.push([x, y + i]);
+                };
+                break;
+            case 'horizontal':
+                for (let i = 0; i < ship.getLength(); i++) {
+                    posArray.push([x + i, y]);
+                };
+                break;
+            default:
+                return 'You must provide a valid orientation!';
+        }
+
+        this.shipLocations.push({
+            "shipIsSunk": ship.isSunk(),
+            "shipCoords": posArray
+        });
     }
 }
