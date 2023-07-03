@@ -32,6 +32,7 @@ describe('Ship.js tests', () => {
 
 describe('Gameboard.js tests', () => {
     const gameboard = new Gameboard();
+    const ship = Ship(5)
 
     test('Creates a gameboard of correct size', () => {
         expect(gameboard.board.size).toBe(100);
@@ -47,10 +48,17 @@ describe('Gameboard.js tests', () => {
     })
 
     test('Placed ships are updated in the board Map', () => {
-        const ship = Ship(5)
         expect(JSON.stringify(gameboard.board.get('0,1'))).toEqual(JSON.stringify({
             "containsShip": ship,
             "hasReceivedHit": false
         }))
+    })
+
+    test('Gameboard can receive hit', () => {
+        gameboard.receiveAttacK('0,1')
+        expect(gameboard.board.get('0,1')).toEqual({
+            "containsShip": ship,
+            "hasReceivedHit": true
+        })
     })
 })
