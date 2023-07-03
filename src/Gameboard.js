@@ -41,11 +41,7 @@ export default class Gameboard {
         }
 
         posArray.forEach(element => {
-            this.board.get(`${element}`).containsShip = {
-                "hits": ship.getHits(),
-                "length": ship.getLength(),
-                "isSunk": ship.isSunk()
-            }
+            this.board.get(`${element}`).containsShip = ship
         })
 
         this.shipLocations.push({
