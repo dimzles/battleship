@@ -42,6 +42,18 @@ describe('Gameboard.js tests', () => {
         expect(gameboard.shipLocations).toContainEqual({
             "shipIsSunk": false, 
             "shipCoords": [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5]],
+            "orientation": "vertical"
+        })
+    })
+
+    test('Placed ships are updated in the board Map', () => {
+        expect(gameboard.board.get('0,1')).toEqual({
+            "containsShip": {
+                "hits": 0,
+                "length": 5,
+                "isSunk": false
+            },
+            "hasReceivedHit": false
         })
     })
 })
