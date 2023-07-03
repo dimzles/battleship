@@ -50,4 +50,13 @@ export default class Gameboard {
             "orientation": orientation
         });
     }
+
+    receiveAttack(coordArray) {
+        const x = coordArray[0]
+        const y = coordArray[1]
+        const tile = this.board.get(`${[x, y]}`)
+        const ship = tile.containsShip
+
+        tile.hasReceivedHit = true;
+    }
 }
