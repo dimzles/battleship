@@ -47,13 +47,10 @@ describe('Gameboard.js tests', () => {
     })
 
     test('Placed ships are updated in the board Map', () => {
-        expect(gameboard.board.get('0,1')).toEqual({
-            "containsShip": {
-                "hits": 0,
-                "length": 5,
-                "isSunk": false
-            },
+        const ship = Ship(5)
+        expect(JSON.stringify(gameboard.board.get('0,1'))).toEqual(JSON.stringify({
+            "containsShip": ship,
             "hasReceivedHit": false
-        })
+        }))
     })
 })
