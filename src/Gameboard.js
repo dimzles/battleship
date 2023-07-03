@@ -40,9 +40,18 @@ export default class Gameboard {
                 return 'You must provide a valid orientation!';
         }
 
+        posArray.forEach(element => {
+            this.board.get(`${element}`).containsShip = {
+                "hits": ship.getHits(),
+                "length": ship.getLength(),
+                "isSunk": ship.isSunk()
+            }
+        })
+
         this.shipLocations.push({
             "shipIsSunk": ship.isSunk(),
-            "shipCoords": posArray
+            "shipCoords": posArray,
+            "orientation": orientation
         });
     }
 }
