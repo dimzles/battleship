@@ -55,10 +55,10 @@ describe('Gameboard.js tests', () => {
     })
 
     test('Gameboard can receive hit', () => {
-        gameboard.receiveAttacK('0,1')
-        expect(gameboard.board.get('0,1')).toEqual({
+        gameboard.receiveAttack([0,1])
+        expect(JSON.stringify(gameboard.board.get('0,1'))).toEqual(JSON.stringify({
             "containsShip": ship,
             "hasReceivedHit": true
-        })
+        }))
     })
 })
