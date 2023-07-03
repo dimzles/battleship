@@ -57,6 +57,7 @@ export default class Gameboard {
         const tile = this.board.get(`${[x, y]}`)
         const ship = tile.containsShip
 
+        ship.hit()
         tile.hasReceivedHit = true;
     }
 }
