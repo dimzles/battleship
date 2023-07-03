@@ -61,4 +61,11 @@ describe('Gameboard.js tests', () => {
             "hasReceivedHit": true
         }))
     })
+
+    test('receiveAttack increases ship hit count', () => {
+        const tile = gameboard.board.get('0,2');
+        const ship = tile.containsShip
+
+        expect(ship.getHits()).toBe(1)
+    })
 })
