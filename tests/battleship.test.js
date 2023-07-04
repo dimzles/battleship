@@ -68,4 +68,13 @@ describe('Gameboard.js tests', () => {
 
         expect(ship.getHits()).toBe(1)
     })
+
+    test('Gameboard reports whether all ships have been sunk', () => {
+        gameboard.receiveAttack([0,2])
+        gameboard.receiveAttack([0,3])
+        gameboard.receiveAttack([0,4])
+        gameboard.receiveAttack([0,5])
+        
+        expect(gameboard.allShipsSunk()).toBe(true)
+    })
 })
