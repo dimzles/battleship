@@ -45,6 +45,7 @@ export default class Gameboard {
         })
 
         this.shipLocations.push({
+            ship,
             "shipIsSunk": ship.isSunk(),
             "shipCoords": posArray,
             "orientation": orientation
@@ -59,5 +60,15 @@ export default class Gameboard {
 
         ship.hit()
         tile.hasReceivedHit = true;
+    }
+
+    allShipsSunk() {
+        const shipLocations = this.shipLocations
+
+        this.shipLocations.forEach(obj => {
+            if (obj.ship.isSunk() === false) return false
+        })
+
+        return true;
     }
 }
