@@ -40,11 +40,16 @@ describe('Gameboard.js tests', () => {
 
     test('Places a ship at a given coordinate', () => {
         gameboard.placeShip(5, [0, 1], "vertical");
-        expect(gameboard.shipLocations).toContainEqual({
+        const testObj = {
+            ship,
             "shipIsSunk": false, 
             "shipCoords": [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5]],
             "orientation": "vertical"
-        })
+        }
+
+        const shipLocations = [...gameboard.shipLocations]
+
+        expect(JSON.stringify(shipLocations[0])).toEqual(JSON.stringify(testObj))
     })
 
     test('Placed ships are updated in the board Map', () => {
