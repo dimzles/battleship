@@ -83,3 +83,12 @@ describe('Gameboard.js tests', () => {
         expect(gameboard.allShipsSunk()).toBe(true)
     })
 })
+
+describe('Player.js tests', () => {
+    test('Player class is correctly initialised', () => {
+        const player = new Player()
+        expect(player).toBeInstanceOf(Player)
+        expect(player.currentTurn).toBe(false)
+        expect(player.playedMoves).toBeEmpty()
+    })
+})
