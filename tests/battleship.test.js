@@ -1,5 +1,6 @@
 import { Ship } from "../src/Ship.js";
 import Gameboard from "../src/Gameboard.js";
+import Player from "../src/Player.js";
 
 describe('Ship.js tests', () => {
     const ship = Ship(5);
