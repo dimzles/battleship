@@ -100,10 +100,11 @@ describe('Player.js tests', () => {
         const ship = gameboard.board.get('0,2').containsShip
         player.playTurn(gameboard, [0,3])
 
-        expect(gameboard.board.get('0,2')).toEqual({
+        expect(gameboard.board.get('0,3')).toEqual({
             "containsShip": ship,
             "hasReceivedHit": true
         })
         expect(ship.getHits()).toBe(1)
+        expect(player.playedMoves).toContain('0,3') 
     })
 })
