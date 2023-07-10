@@ -92,4 +92,18 @@ describe('Player.js tests', () => {
         expect(player.currentTurn).toBe(false)
         expect(player.playedMoves).toBeEmpty()
     })
+
+    test('Player can make a move on a given coord', () => {
+        const gameboard = new Gameboard();
+        const player = new Player();
+        gameboard.placeShip(5, [0,1], "vertical")
+        const ship = gameboard.board.get('0,2').containsShip
+        player.playTurn(gameboard, [0,3])
+
+        expect(gameboard.board.get('0,2')).toEqual({
+            "containsShip": ship,
+            "hasReceivedHit": true
+        })
+        expect(ship.getHits()).toBe(1)
+    })
 })
