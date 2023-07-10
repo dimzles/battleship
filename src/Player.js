@@ -3,4 +3,9 @@ export default class Player {
         this.currentTurn = false;
         this.playedMoves = [];
     }
+
+    playTurn(gameboard, coordArray) {
+        this.playedMoves.push(`${coordArray}`)
+        gameboard.receiveAttack(coordArray)
+    }
 }
