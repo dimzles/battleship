@@ -107,4 +107,15 @@ describe('Player.js tests', () => {
         expect(ship.getHits()).toBe(1)
         expect(player.playedMoves).toContain('0,3') 
     })
+
+    test('Computer can make a valid move on a random square', () => {
+        const enemyGameboard = new Gameboard();
+        const computerPlayer = new Player();
+
+        const coordinates = computerPlayer.playRandomMove(enemyGameboard)
+        expect(enemyGameboard.board.get(coordinates)).toEqual({
+            "containsShip": ship,
+            "hasReceivedHit": true
+        })
+    })
 })
