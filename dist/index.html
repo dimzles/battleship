@@ -6,13 +6,20 @@
     <title>Battleship</title>
     <script src="https://kit.fontawesome.com/865caf9e64.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header><h1 class="header-text">Battleship</h1></header>
-        <main></main>
+        <main>
+            <div id="gameboard-container">
+                <h2 class="p1-header">Player 1</h2>
+                <div id="p1-board"></div>
+                <h2 class="p2-header">Opponent</h2>
+                <div id="p2-board"></div>
+            </div>
+        </main>
         <footer><p class="footer-text">Created by dimzles<a class="footer-link" href="http://github.com/dimzles"><i class="fa-brands fa-github"></i></a></p></footer>
     </div>
     <script src="main.js"></script>

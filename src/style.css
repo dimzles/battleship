@@ -25,16 +25,78 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
+/* Header Styling */
+
 header {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--primary);
+  padding: 8px;
 }
 
 .header-text {
   color: white;
 }
+
+/* Main Styling */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Gameboard Styling */
+
+#gameboard-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr;
+  height: 100%;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.p1-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.p2-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#p1-board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  border: 2px solid lightgray;
+  height: 100%;
+  grid-area: 2 / 1 / 2 / 2;
+}
+
+#p2-board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  border: 2px solid lightgray;
+  height: 100%;
+  grid-area: 2 / 2 / 2 / 3;
+}
+
+.board-tile {
+  outline: 1px solid var(--primary);
+}
+
+/* Footer Styling */
 
 footer {
   background-color: var(--primary);
