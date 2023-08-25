@@ -1,9 +1,4 @@
-import testFunction from "./Ship.js";
+import "./style.css"
+import { initialiseGame } from "./gameController.js"
 
-export default function indexFunction () {
-    console.log('hello world')
-    return 'hello world'
-}
-
-indexFunction()
-testFunction()
+initialiseGame();

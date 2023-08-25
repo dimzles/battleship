@@ -15,6 +15,7 @@ export const Ship = (length) => {
     }
 
     const hit = () => {
+        if (hits === length) return
         hits++
     }
 

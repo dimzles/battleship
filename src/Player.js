@@ -1,8 +1,9 @@
 export default class Player {
-    constructor() {
+    constructor(playerType) {
         this.currentTurn = false;
         this.playedMoves = [];
         this.gameboard = null;
+        this.playerType = playerType
     }
 
     playTurn(gameboard, coordArray) {

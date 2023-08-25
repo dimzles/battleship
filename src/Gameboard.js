@@ -10,7 +10,7 @@ export default class Gameboard {
     addVertices(size = 10) {
         for (let i = 0; i < size; i++) {
             for (let j = 0; j < size; j++) {
-                this.board.set(`${[i, j]}`, {
+                this.board.set(`${[j, i]}`, {
                     "containsShip": false,
                     "hasReceivedHit": false
                 })
@@ -58,8 +58,12 @@ export default class Gameboard {
         const tile = this.board.get(`${[x, y]}`)
         const ship = tile.containsShip
 
-        ship.hit()
-        tile.hasReceivedHit = true;
+        if (ship) {
+            ship.hit();
+            tile.hasReceivedHit = true;
+        } else {
+            tile.hasReceivedHit = false;
+        }
     }
 
     allShipsSunk() {

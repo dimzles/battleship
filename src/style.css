@@ -100,6 +100,7 @@ main {
 
 .board-tile {
   outline: 1px solid var(--primary);
+  background-color: cornflowerblue;
 }
 
 /* Footer Styling */

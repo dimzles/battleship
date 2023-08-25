@@ -16,7 +16,25 @@ export function renderGameboard(player) {
         let key = mapArray.next().value
 
         tile.classList.add('board-tile')
-        tile.dataset.coords = key;
+        tile.setAttribute('id', player.playerType + '-' + key)
         playerBoard.appendChild(tile)
     }
+}
+
+export function renderShips(player) {
+    let boardDiv;
+
+    if (player.playerType === 'p1') {
+        boardDiv = document.getElementById('p1-board');   
+    } else {
+        boardDiv = document.getElementById('p2-board');
+    }
+
+    player.gameboard.shipLocations.forEach(ship => {
+        ship.shipCoords.forEach(coord => {
+            coord.toString()
+            const tile = document.getElementById(player.playerType + '-' + coord)
+            tile.style.backgroundColor = 'gray'
+        })
+    })
 }
