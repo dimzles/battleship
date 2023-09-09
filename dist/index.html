@@ -14,10 +14,20 @@
         <header><h1 class="header-text">Battleship</h1></header>
         <main>
             <div id="gameboard-container">
-                <h2 class="p1-header">Player 1</h2>
-                <div id="p1-board"></div>
-                <h2 class="p2-header">Opponent</h2>
-                <div id="p2-board"></div>
+                <div style="display: grid; grid-template-rows: auto 1fr; grid-template-columns: auto;">
+                    <h2 class="p1-header">Player 1</h2>
+                    <div id="p1-board"></div>
+                </div>
+
+                <div id="controlPanel">
+                    <div id="shipContainer"></div>
+                    <button id="endTurn" class="end-btn">End Turn</button>
+                </div>
+
+                <div style="display: grid; grid-template-rows: auto 1fr; grid-template-columns: auto;">
+                    <h2 class="p2-header">Opponent</h2>
+                    <div id="p2-board"></div>
+                </div>
             </div>
         </main>
         <footer><p class="footer-text">Created by dimzles<a class="footer-link" href="http://github.com/dimzles"><i class="fa-brands fa-github"></i></a></p></footer>

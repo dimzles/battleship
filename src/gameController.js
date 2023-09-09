@@ -1,30 +1,55 @@
 import Gameboard from './Gameboard.js';
 import Player from './Player.js';
-import { renderGameboard, renderShips } from './displayController.js';
+import { disableDragAndDrop, enableDragAndDrop, renderGameboard, renderShips } from './displayController.js';
+import { Ship } from './Ship.js';
 
-let player1 = new Player('player');
-let player2 = new Player('computer');
-let currentTurn = 0;
+let player1;
+let player2;
+export class GameController {
+    constructor() {}
+    
+    currentTurn = 0;
+    
+    initialiseGame() {
+        this.player1 = new Player('p1');
+        this.player2 = new Player('p2');
+        this.player1.gameboard = new Gameboard();
+        this.player2.gameboard = new Gameboard();
+        renderGameboard(this.player1)
+        renderGameboard(this.player2)
+        this.initialiseShips()
+    }
 
-export function initialiseGame() {
-    player1 = new Player('p1');
-    player2 = new Player('p2');
-    const p1gameboard = new Gameboard();
-    const p2gameboard = new Gameboard();
+    initialiseShips() {
+        const ships = [Ship(5), Ship(2), Ship(4), Ship(3), Ship(2)]
 
-    player1.setGameboard(p1gameboard);
-    player2.setGameboard(p2gameboard);
+        renderShips(ships)
+    }
 
-    player1.setTurn(true);
+    checkP1Turn() {
+        return currentTurn % 2 === 0 ? true : false;
+    }
 
-    renderGameboard(player1)
-    placeShips(player1)
-    renderShips(player1)
-    renderGameboard(player2)
-}
+    checkP2Turn() {
+        return currentTurn % 2 === 1 ? true : false;
+    }
 
-function placeShips(player) {
-    const gameboard = player.gameboard;
+    startGame() {
+        this.playTurn()
+    }
 
-    gameboard.placeShip(5, [0, 0], 'vertical')
+    playTurn() {
+        //if true, is a turn to place ships
+        if (this.currentTurn === 0 || this.currentTurn === 1) {
+            if (this.checkP1Turn) {
+                enableDragAndDrop(this.player1)
+                disableDragAndDrop(this.player2)
+            } else if (this.checkP2Turn) {
+                enableDragAndDrop(this.player2)
+                disableDragAndDrop(this.player1)
+            }
+        }
+
+        this.currentTurn++;
+    }
 }

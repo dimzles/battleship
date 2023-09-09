@@ -1,4 +1,6 @@
 import "./style.css"
-import { initialiseGame } from "./gameController.js"
+import { GameController } from "./gameController.js"
 
-initialiseGame();
+const gameController = new GameController();
+gameController.initialiseGame();
+gameController.startGame()

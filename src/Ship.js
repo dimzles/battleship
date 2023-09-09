@@ -1,6 +1,25 @@
 export const Ship = (length) => {
     let hits = 0;
 
+    const getName = () => {
+        switch (length) {
+            case 2:
+                return 'Destroyer'
+                break;
+            case 3:
+                return 'Submarine'
+                break;
+            case 4:
+                return 'Battleship'
+                break;
+            case 5:
+                return 'Carrier'
+                break;
+            default:
+                break;
+        }
+    }
+
     const getLength = () => {
         return length;
     }
@@ -19,5 +38,5 @@ export const Ship = (length) => {
         hits++
     }
 
-    return { getLength, getHits, isSunk, hit }
+    return { getLength, getHits, getName, isSunk, hit }
 }
